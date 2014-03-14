@@ -1,3 +1,4 @@
+
 /*
 Tarea 1 Ingeniería de Software Primer Semestre 2014
 Integrates: Jonathan León Sepulveda. rut :17.771.116-0
@@ -6,8 +7,11 @@ Integrates: Jonathan León Sepulveda. rut :17.771.116-0
 
 #include <iostream>
 #include <time.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-using namespace std; 
+using namespace std;
 
 #define _TIME_   //Macros para mostrar la fecha de compilaciòn
 
@@ -16,25 +20,25 @@ using namespace std;
 //*********************************************************************************************************
 
 //devuelve true si el año es bisiesto
-bool EsBisiesto(int año)
+bool EsBisiesto(int anio)
 {
-	if((año%4==0)&&!(año%100==0))
+	if((anio%4==0)&&!(anio%100==0))
 		return true;
-	else if(año%400==0)
+	else if(anio%400==0)
 		return true;
 
 	return false;
 }
 
 //Comprueba que los valores del año, mes y dia sea correctos
-bool ValidarDatos(int año,int mes,int dia)
+bool ValidarDatos(int anio,int mes,int dia)
 {
-	if(año<0||mes<0||dia<0)
+	if(anio<0||mes<0||dia<0)
 	return false;
 	else if(mes>12)return false;
 	else if((dia>31)&&(mes==1||3||5||7||8||10||12))return false;
 	else if((dia>30)&&(mes==4||5||9||11))return false;
-	else if((dia>28)&&(mes==2)&&!EsBisiesto(año))return false;
+	else if((dia>28)&&(mes==2)&&!EsBisiesto(anio))return false;
 	else if((dia>29)&&(mes==2))return false;
 	else return true;
 
@@ -56,10 +60,10 @@ bool ValidarDatos(int año,int mes,int dia)
 //diciembre:31
 
 //Calcula el numero de la semana para cierta fecha
-void NumSemana(int año,int mes, int dia)
-	
+void NumSemana(int anio,int mes, int dia)
+
 {
-	
+
 	int dias=dia; //contando los dias del mes actual
 	int mesactual=1; //partire contando desde 1, es decir el mes de enero
 	while(mesactual<mes)
@@ -67,18 +71,18 @@ void NumSemana(int año,int mes, int dia)
 	    mesactual++;
 		if(mesactual==1||3||5||7||8||10||12)dias=dias+31; //si el mes actual es cualquiera de los que tiene 31 dias, se suma esa cantidad al contador de dias.
 		else if(mesactual==4||6||9||11)dias=dias+30;//si el mes actual es cualquiera de los que tiene 30 dias, se suma esa cantidad al contador de dias.
-		else if((mesactual==2)&&(EsBisiesto(año)))dias=dias+29;//si el año es bisiesto y el mes actual es febrero, se acumulan 29 dias
-		else if((mesactual==2)&&(!EsBisiesto(año))) dias=dias+28;  //si no es bisiesto, entonces solo se suman 28
+		else if((mesactual==2)&&(EsBisiesto(anio)))dias=dias+29;//si el año es bisiesto y el mes actual es febrero, se acumulan 29 dias
+		else if((mesactual==2)&&(!EsBisiesto(anio))) dias=dias+28;  //si no es bisiesto, entonces solo se suman 28
 	}
 	//cout<<"Numero de semana : "<<(dias/7)+1<<endl;// le sume 1 al resultado final porque este solo cuenta las semanas completas, y se pide el numero de la semana de esa fecha
 }
 
 
 //Obtiene el tiempo transcurrido desde la fecha puesta en la linea de comando y la fecha de la ejecucción del programa.
-void ObtenerTiempo(int año,int mes, int dia)
+void ObtenerTiempo(int anio,int mes, int dia)
 {
-	int dia_actual,mes_actual,año_actual;
-	int años,meses,dias;
+	int dia_actual,mes_actual,anio_actual;
+	int anios,meses,dias;
 	time_t ahora;
     struct tm *presente;
     time(&ahora);
@@ -86,22 +90,22 @@ void ObtenerTiempo(int año,int mes, int dia)
 
 	dia_actual=presente->tm_mday;
 	mes_actual=presente->tm_mon+1;
-	año_actual=presente->tm_year+1900;
-	cout<<"Fecha actual : "<<año_actual<<"-"<<mes_actual<<"-"<<dia_actual<<endl;
+	anio_actual=presente->tm_year+1900;
+	cout<<"Fecha actual : "<<anio_actual<<"-"<<mes_actual<<"-"<<dia_actual<<endl;
 
 	//Para ello se resta la fecha actual con la fecha de la linea de comando.
 
-	años=año_actual-año;
+	anios=anio_actual-anio;
 	meses=mes_actual-mes;
 	dias=dia_actual-dia;
-	
+
 	//Si la diferencia de dias es negativa, le sumo la cantidad de dias del mes anterior de la fecha actual y le resto 1 a la diferencia de meses.
 	if(dias<0)
 	{
 	  if(mes_actual-1==1||3||5||7||8||10||12)dias=dias+31;
 	  else if(mes_actual-1==4||6||9||11)dias=dias+30;
-	  else if((mes_actual-1==2)&&(EsBisiesto(año_actual)))dias=dias+29;
-	  else if((mes_actual-1==2)&&(!EsBisiesto(año_actual)))dias=dias+28;
+	  else if((mes_actual-1==2)&&(EsBisiesto(anio_actual)))dias=dias+29;
+	  else if((mes_actual-1==2)&&(!EsBisiesto(anio_actual)))dias=dias+28;
 	  meses--;
     }
 
@@ -109,39 +113,38 @@ void ObtenerTiempo(int año,int mes, int dia)
 	if(meses<0)
 	{
 	   meses=meses+12;
-	   años=años-1;
+	   anios=anios-1;
 	}
 	//Muestra resultado.
-	cout<<"Difiere en "<<años<<" años, "<<meses<<" meses y "<<dias<<" la fecha ingresada con la de sistema."<<endl;
+	cout<<"Difiere en "<<anios<<" anios, "<<meses<<" meses y "<<dias<<" la fecha ingresada con la de sistema."<<endl;
 }
 
 //                                 FIN/ FUNCIONES PORCEDIMIENTOS
 //**********************************************************************************************************************************
-
-void main(int argc,char **argv)
+int main(int argc,char **argv)
 {
-   
+
 	//Si el primer parametro es -f...
 	if(strcmp(*(argv+1),"-f")==0)
-	{	
+	{
 	 if(*(argv+2)!=NULL) //Chequear que el segundo parametro no sea nulo.
 	 {
-	     string fecha,año,mes,dia;   //Declaro algunas variables para guardar dichos parametros.
+	     string fecha,anio,mes,dia;   //Declaro algunas variables para guardar dichos parametros.
 		 int aaaa,mm,dd;
 		 fecha=(*(argv+2));
-		 año=fecha.substr(0,4);
+		 anio=fecha.substr(0,4);
 		 mes=fecha.substr(5,2);
 		 dia=fecha.substr(8,2);
 
 		 mm=atoi(mes.c_str());   //Convertir los strings separados en valores enteros
 		 dd=atoi(dia.c_str());
-		 aaaa=atoi(año.c_str());
+		 aaaa=atoi(anio.c_str());
 
 		 if(!ValidarDatos(aaaa,mm,dd))  // Valido los datos
 		 {
-		         cout<<"La fecha ingresada no es Valida."<<endl;				 
+		         cout<<"La fecha ingresada no es Valida."<<endl;
 				 exit(0);
-		 }		
+		 }
 
 		 NumSemana(aaaa,mm,dd);  // Mostrar numero de la semana de la fecha puesta
 		 ObtenerTiempo(aaaa,mm,dd); //Obtener al diferencia de tiempo.
@@ -164,13 +167,13 @@ void main(int argc,char **argv)
 			cout<<"3.NO DISPONIBLE"<<endl;
 			cout<<"Fecha de compilacion: ";
 			puts(__DATE__);  //Fecha de compilacion.
-		 
+
 	}
 	//O cualquier otra cosa...
-	else 
+	else
 	{
 	      cout<<"Error: comando no reconocido."<<endl;
 	}
-	
-	
+
+
 }
