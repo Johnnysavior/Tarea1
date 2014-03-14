@@ -1,7 +1,7 @@
 /*
 Tarea 1 Ingeniería de Software Primer Semestre 2014
 Integrates: Jonathan León Sepulveda. rut :17.771.116-0
-           Porfesor: Sebastian Salazar Molina
+           Profesor: Sebastian Salazar Molina
 */
 
 #include <iostream>
