@@ -1,8 +1,8 @@
-
 /*
-Tarea 1 Ingeniería de Software Primer Semestre 2014
-Integrates: Jonathan León Sepulveda. rut :17.771.116-0
+Tarea 1 Ingenierï¿½a de Software Primer Semestre 2014
+Integrates: Jonathan Leï¿½n Sepulveda. rut :17.771.116-0
             Francisca Sapiains Carrasco. rut: 17707063-7
+            Cristian Mondaca Ruiz. rut: 15610050-1
            Profesor: Sebastian Salazar Molina
 */
 
@@ -14,13 +14,13 @@ Integrates: Jonathan León Sepulveda. rut :17.771.116-0
 
 using namespace std;
 
-#define _TIME_   //Macros para mostrar la fecha de compilaciòn
+#define _TIME_   //Macros para mostrar la fecha de compilaciï¿½n
 
 
  //                          FUNCIONES/PROCEDIMIENTOS
 //*********************************************************************************************************
 
-//devuelve true si el año es bisiesto
+//devuelve true si el aï¿½o es bisiesto
 bool EsBisiesto(int anio)
 {
 	if((anio%4==0)&&!(anio%100==0))
@@ -31,7 +31,7 @@ bool EsBisiesto(int anio)
 	return false;
 }
 
-//Comprueba que los valores del año, mes y dia sea correctos
+//Comprueba que los valores del aï¿½o, mes y dia sea correctos
 bool ValidarDatos(int anio,int mes,int dia)
 {
 	if(anio<0||mes<0||dia<0)
@@ -72,14 +72,14 @@ void NumSemana(int anio,int mes, int dia)
 	    mesactual++;
 		if(mesactual==1||3||5||7||8||10||12)dias=dias+31; //si el mes actual es cualquiera de los que tiene 31 dias, se suma esa cantidad al contador de dias.
 		else if(mesactual==4||6||9||11)dias=dias+30;//si el mes actual es cualquiera de los que tiene 30 dias, se suma esa cantidad al contador de dias.
-		else if((mesactual==2)&&(EsBisiesto(anio)))dias=dias+29;//si el año es bisiesto y el mes actual es febrero, se acumulan 29 dias
+		else if((mesactual==2)&&(EsBisiesto(anio)))dias=dias+29;//si el aï¿½o es bisiesto y el mes actual es febrero, se acumulan 29 dias
 		else if((mesactual==2)&&(!EsBisiesto(anio))) dias=dias+28;  //si no es bisiesto, entonces solo se suman 28
 	}
 	//cout<<"Numero de semana : "<<(dias/7)+1<<endl;// le sume 1 al resultado final porque este solo cuenta las semanas completas, y se pide el numero de la semana de esa fecha
 }
 
 
-//Obtiene el tiempo transcurrido desde la fecha puesta en la linea de comando y la fecha de la ejecucción del programa.
+//Obtiene el tiempo transcurrido desde la fecha puesta en la linea de comando y la fecha de la ejecucciï¿½n del programa.
 void ObtenerTiempo(int anio,int mes, int dia)
 {
 	int dia_actual,mes_actual,anio_actual;
@@ -110,7 +110,7 @@ void ObtenerTiempo(int anio,int mes, int dia)
 	  meses--;
     }
 
-	//Si la diferencia de meses es negativa , le sumo 12 meses a esta y resto 1 a la catidad de años.
+	//Si la diferencia de meses es negativa , le sumo 12 meses a esta y resto 1 a la catidad de aï¿½os.
 	if(meses<0)
 	{
 	   meses=meses+12;
@@ -150,9 +150,9 @@ int main(int argc,char **argv)
 		 NumSemana(aaaa,mm,dd);  // Mostrar numero de la semana de la fecha puesta
 		 ObtenerTiempo(aaaa,mm,dd); //Obtener al diferencia de tiempo.
 
-		 if(EsBisiesto(aaaa))   //Comporbar si el año ingresado es Bisiesto
+		 if(EsBisiesto(aaaa))   //Comporbar si el aï¿½o ingresado es Bisiesto
 		 {
-		    cout<<aaaa<<" es un año bisiesto."<<endl;  //Manda mensaje en caso de ser asi.
+		    cout<<aaaa<<" es un aï¿½o bisiesto."<<endl;  //Manda mensaje en caso de ser asi.
 		 }
 	 }
 
@@ -161,7 +161,7 @@ int main(int argc,char **argv)
 	// O si el primer parametro es -v...
 	else if(strcmp(*(argv+1),"-v")==0)
 	{
-		 //Imprimo información de interes...
+		 //Imprimo informaciï¿½n de interes...
 		    cout<<"Integrantes del grupo de trabajo : "<<endl;
 			cout<<"1.Jonathan Leon S , rut:17.771.116-0"<<endl;
 			cout<<"2.Francisca Sapiains Carrasco , rut:17707063-7"<<endl;
