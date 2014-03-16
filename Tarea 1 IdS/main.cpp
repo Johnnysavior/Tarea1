@@ -75,7 +75,7 @@ void NumSemana(int anio,int mes, int dia)
 		else if((mesactual==2)&&(EsBisiesto(anio)))dias=dias+29;//si el a�o es bisiesto y el mes actual es febrero, se acumulan 29 dias
 		else if((mesactual==2)&&(!EsBisiesto(anio))) dias=dias+28;  //si no es bisiesto, entonces solo se suman 28
 	}
-	//cout<<"Numero de semana : "<<(dias/7)+1<<endl;// le sume 1 al resultado final porque este solo cuenta las semanas completas, y se pide el numero de la semana de esa fecha
+	cout<<"Numero de semana : "<<(dias/7)+1<<endl;// le sume 1 al resultado final porque este solo cuenta las semanas completas, y se pide el numero de la semana de esa fecha
 }
 
 
