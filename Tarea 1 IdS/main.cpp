@@ -2,6 +2,7 @@
 /*
 Tarea 1 Ingeniería de Software Primer Semestre 2014
 Integrates: Jonathan León Sepulveda. rut :17.771.116-0
+            Francisca Sapiains Carrasco. rut: 17707063-7
            Profesor: Sebastian Salazar Molina
 */
 
@@ -163,7 +164,7 @@ int main(int argc,char **argv)
 		 //Imprimo información de interes...
 		    cout<<"Integrantes del grupo de trabajo : "<<endl;
 			cout<<"1.Jonathan Leon S , rut:17.771.116-0"<<endl;
-			cout<<"2.NO DISPONIBLE"<<endl;
+			cout<<"2.Francisca Sapiains Carrasco , rut:17707063-7"<<endl;
 			cout<<"3.NO DISPONIBLE"<<endl;
 			cout<<"Fecha de compilacion: ";
 			puts(__DATE__);  //Fecha de compilacion.
