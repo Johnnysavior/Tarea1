@@ -165,7 +165,8 @@ int main(int argc,char **argv)
 		    cout<<"Integrantes del grupo de trabajo : "<<endl;
 			cout<<"1.Jonathan Leon S , rut:17.771.116-0"<<endl;
 			cout<<"2.Francisca Sapiains Carrasco , rut:17707063-7"<<endl;
-			cout<<"3.NO DISPONIBLE"<<endl;
+			cout<<"3.Cristian Mondaca Ruiz , rut:15610050-1"<<endl;
+			cout<<"4.NO DISPONIBLE"<<endl;
 			cout<<"Fecha de compilacion: ";
 			puts(__DATE__);  //Fecha de compilacion.
 
